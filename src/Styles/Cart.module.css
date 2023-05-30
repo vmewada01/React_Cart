@@ -1,0 +1,19 @@
+/* CSS for Payment Mode Dropdown */
+.select-payment-mode {
+    margin-top: 10px;
+  }
+  
+  .select-payment-mode select {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 4px;
+  }
+  
+  /* CSS for Selected Payment Mode */
+  .selected-payment-mode {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  
