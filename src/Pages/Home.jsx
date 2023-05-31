@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Footer from "../components/Footer";
+import { Button, Heading } from "@chakra-ui/react";
 
 const Home = () => {
   const [index, setIndex] = useState(0);
@@ -44,6 +45,7 @@ const Home = () => {
       clearInterval(id);
     };
   }, []);
+  console.log(page)
 
   return (
     <div>
@@ -56,7 +58,7 @@ const Home = () => {
           fontFamily: "cursive",
         }}
       >
-        <h1>AMAZING DEALS OF THE WEEK</h1>
+        <Heading>AMAZING DEALS OF THE WEEK</Heading>
       </div>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <img
@@ -104,21 +106,21 @@ const Home = () => {
       <br />
       <br />
       <div style={{ display: "flex", justifyContent: "center", gap: "5px" }}>
-        <button
+        <Button
           style={{ backgroundColor: "#ff3366", borderRadius: "5px" }}
-          disabled={page == 18}
+          disabled={page === 18}
           onClick={() => setPage(18)}
         >
           SHOW MORE
-        </button>
+        </Button>
 
-        <button
+        <Button
           style={{ backgroundColor: "#ff3366", borderRadius: "5px" }}
-          disabled={page == 9}
+          disabled={page === 9}
           onClick={() => setPage(9)}
         >
           SHOW LESS
-        </button>
+        </Button>
       </div>
     </div>
   );

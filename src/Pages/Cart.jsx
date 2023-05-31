@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styles from "../App.css"
+import { Heading } from "@chakra-ui/react";
 const Cart = () => {
   const [data, setData] = useState([]);
+  const [price, setPrice] = useState(0)
 
   useEffect(() => {
     fetch(" https://fakestoreapi.com/carts")
@@ -25,11 +27,11 @@ const Cart = () => {
      
 
 
-    <h2>Cart Page</h2>
-    
-    <h3>Total Price:</h3>
 
-    <h3 className="select-payment-mode">Select Payment Mode:</h3>
+    
+    <Heading>Total Price:{price}</Heading>
+
+    <h1  className="select-payment-mode">Select Payment Mode:</h1>
     <select className="select-payment-mode" >
       <option value="Credit Card">Credit Card</option>
       <option value="Debit Card">Debit Card</option>
@@ -37,7 +39,7 @@ const Cart = () => {
     </select>
 
     <h4 className="selected-payment-mode">Selected Payment Mode: </h4>
-    <button onClick={() => console.log('Proceed to Payment')}>Proceed to Payment</button>
+    <button onClick={() =>console.log("payment under process") } style={{backgroundColor:"#ff3366", borderRadius:"5px"}}>Proceed to Payment</button>
     <br />
     <br />
   </div>

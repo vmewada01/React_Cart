@@ -7,6 +7,8 @@ import {NavLink} from "react-router-dom"
 import { ThemeContext } from '../Context/ThemeContext';
 import AllRoutes from "../Routes/AllRoutes";
 import Footer from "./Footer";
+import { Button, Spacer } from "@chakra-ui/react";
+import { MoonIcon, SunIcon } from '@chakra-ui/icons'
 
 
 
@@ -53,11 +55,11 @@ const handleLoginLogout =()=>{
 
   return (
     <div>
-    <div style={{display: "flex", justifyContent: "space-around", alignItems: "center", padding:"20px", backgroundColor:"#f5f5f5"}}>
-      <div style={{height: "50px"}}>
-        <img src={img} alt="Logo" width="70px" height="90px"  />
+    <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", padding:"20px", backgroundColor:"#f5f5f5"}}>
+      <div>
+        <img src={img} alt="Logo" width="90px" height="90px"  />
       </div>
-      <ul style={{display: "flex", justifyContent:"space-around", gap:"20px"}}>
+      <ul style={{display: "flex", justifyContent:"space-between", gap:"20px"}}>
     {
         links.map((link)=>{
             return (
@@ -73,8 +75,9 @@ const handleLoginLogout =()=>{
         })
     }
       </ul>
-      <div style={{display:"flex" , gap:"20px" , flexDirection:"row",}}>
-        <button onClick={handleLoginLogout} style={{padding: "8px 16px", backgroundColor:"#ff3366", color:" #ffffff",border:"none", borderRadius:"4px", cursor:"pointer"}}  >
+      <div style={{display:"flex" , gap:"10px" , flexDirection:"row"}}>
+   
+        <Button onClick={handleLoginLogout} style={{padding: "8px 16px", backgroundColor:"#ff3366", color:" #ffffff",border:"none", borderRadius:"4px", cursor:"pointer"}}  >
         <NavLink
                style={{color:  "#ffffff"}}
                 key="LoginPage"
@@ -82,8 +85,8 @@ const handleLoginLogout =()=>{
               >
               Login
               </NavLink>
-        </button>
-        <button  style={{padding: "8px 16px", backgroundColor:"#ff3366", color:" #ffffff",border:"none", borderRadius:"4px", cursor:"pointer"}}  >
+        </Button>
+        <Button  style={{padding: "8px 16px", backgroundColor:"#ff3366", color:" #ffffff",border:"none", borderRadius:"4px", cursor:"pointer"}}  >
         <NavLink
                style={{color:  "#ffffff"}}
                 key="cartItem"
@@ -91,11 +94,11 @@ const handleLoginLogout =()=>{
               >
               Cart
               </NavLink>
-        </button>
-        <button onClick={toggleTheme} style={{padding: "8px 16px", backgroundColor:"#ff3366", color:" #ffffff",border:"none",  borderRadius:"50%", cursor:"pointer"}}>
-            
-       {isLight ? 'dark' : 'light'}
-            </button>
+        </Button>
+        <Button onClick={toggleTheme} style={{padding: "8px 16px", backgroundColor:"#ff3366", color:" #ffffff",border:"none",  borderRadius:"50%", cursor:"pointer"}}>
+        
+       {isLight ? <MoonIcon /> :  <SunIcon />}
+            </Button>
        
       </div>
       <br />
