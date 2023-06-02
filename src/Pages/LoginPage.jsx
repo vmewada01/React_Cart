@@ -33,7 +33,7 @@ const LoginPage = () => {
   const [password, setPassword] = useState("");
   const [state, dispatch] = useContext(AuthContext);
   const navigate = useNavigate();
-  const [alert, setAlert] = useState(false);
+  const [indication, setIndication] = useState(false);
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -54,8 +54,8 @@ const LoginPage = () => {
           token: res.data.token,
         },
       });
-      setAlert(true);
-      // alert()
+      setIndication(true);
+
       alert("login Successfull");
       navigate("/mens");
     });
@@ -71,24 +71,7 @@ const LoginPage = () => {
     <div className="login-page">
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
-        {/* <div className="form-group">
-          <label htmlFor="username">Username:</label>
-          <input
-            type="username"
-            id="username"
-            value={username}
-            onChange={handleUsernameChange}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={handlePasswordChange}
-          />
-        </div> */}
+
         <FormControl isInvalid={isError}>
           <FormLabel>User Details</FormLabel>
           <Input

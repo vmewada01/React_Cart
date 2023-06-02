@@ -18,16 +18,15 @@ function AllRoutes() {
           path="/Products"
           element={
             <PrivateRoute>
-
-            <Products />
-             </PrivateRoute>
+              <Products />
+            </PrivateRoute>
           }
         />
         <Route
           path="/Mens"
           element={
             <PrivateRoute>
-            <Mens />
+              <Mens />
             </PrivateRoute>
           }
         />
@@ -35,12 +34,12 @@ function AllRoutes() {
           path="/Womens"
           element={
             <PrivateRoute>
-            <Womens />
+              <Womens />
             </PrivateRoute>
           }
         />
         <Route path="/LoginPage" element={<LoginPage />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/cart" element={  <PrivateRoute><Cart /></PrivateRoute>} />
       </Routes>
     </>
   );

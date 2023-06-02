@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "../App.css"
-import { Heading } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text } from "@chakra-ui/react";
+import { CartContext } from "../Context/CartContext";
 const Cart = () => {
   const [data, setData] = useState([]);
   const [price, setPrice] = useState(0)
+  const {cart} = useContext(CartContext)
 
   useEffect(() => {
     fetch(" https://fakestoreapi.com/carts")
@@ -23,13 +25,14 @@ const Cart = () => {
   };
 
   return (
+    <Box>
     <div style={{display: "flex",flexDirection:"column", justifyContent:"center", alignContent:"center", alignItems:"center", margin:"auto" ,boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px" , width:"50%"}}>
      
 
 
 
     
-    <Heading>Total Price:{price}</Heading>
+    <Heading>Total Price:{cart.price} Rs</Heading>
 
     <h1  className="select-payment-mode">Select Payment Mode:</h1>
     <select className="select-payment-mode" >
@@ -39,12 +42,18 @@ const Cart = () => {
     </select>
 
     <h4 className="selected-payment-mode">Selected Payment Mode: </h4>
-    <button onClick={() =>console.log("payment under process") } style={{backgroundColor:"#ff3366", borderRadius:"5px"}}>Proceed to Payment</button>
+    <button onClick={() => alert("Payment Under Process") } style={{backgroundColor:"#ff3366", borderRadius:"5px"}}>Proceed to Payment</button>
     <br />
     <br />
+ 
   </div>
+  <Flex alignItems='center' margin='auto' direction='column' display='flex' justifyContent='center'>
+  <Box >
+    <img src={cart.url} alt="img" width='300px' /></Box>
+      <Box><Text >Amount to pay: {cart.price} Rs</Text></Box>
+  </Flex>
 
-
+  </Box>
   
   );
 };

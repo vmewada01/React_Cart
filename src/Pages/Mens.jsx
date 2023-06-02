@@ -4,7 +4,7 @@ import { AuthContext } from "../Context/AuthContext";
 import { CartContext } from "../Context/CartContext";
 
 const Mens = () => {
-   const {cart,setCart,setCartItems}= useContext(CartContext)
+   const {cart,setCart,cartData,setCartData}= useContext(CartContext)
   const [data, setData] = useState([]);
   const [count, setCount]= useState(0)
   const [sortvalue, SetSortValue] = useState("asc");
@@ -31,16 +31,24 @@ const Mens = () => {
       });
   }, [sortvalue]);
  
-//    const handleCart =()=>{
-//     alert('hi')
-//     setCart({
-//       ...cart,
-//       url: data.image,
-//       price: data.price,
-//       category: data.category
+   const handleCart =(img,price,category)=>{
+    alert('item added to cart')
+    
 
-//     })
-//    }
+    setCart({
+      ...cart,
+      url: img,
+      price: price,
+      category: category
+
+    })
+
+   console.log(cart)
+   }
+
+  //  console.log(cartData)
+
+
 
 // console.log(cart)
   return (
@@ -78,25 +86,15 @@ const Mens = () => {
               <h4>Price : {api_data.price} Rs</h4>
               <p>{api_data.title}</p>
               <div>
-              <button
-              disabled={count==5}
-              onClick={()=>setCount(()=>count+1)}
-                style={{ backgroundColor: "#ff3366", borderRadius: "5px" }}
-              >
-               +
-              </button>
-              {count}
-              <button
-              disabled={count==0}
-              onClick={()=>setCount((count)=>count-1)}
-                style={{ backgroundColor: "#ff3366", borderRadius: "5px" }}
-              >
-             -
-              </button>
+              
            
               <button
                 style={{ backgroundColor: "#ff3366", borderRadius: "5px" }}
-              
+               onClick={()=>{
+                console.log(api_data.image,api_data.price,api_data.category)
+                 
+                handleCart(api_data.image,api_data.price,api_data.category) 
+              }}
               >
                 BUY NOW
               </button>

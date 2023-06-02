@@ -9,19 +9,12 @@ export  function CartContextProvider({children}){
         category:"",
         price:""
     })
-    const setCartItems= (image_url,category,price)=>{
-        setCart({
-            ...cart,
-            url: image_url,
-            category: category,
-            price: price
-        })
-    }
+   const [cartData, setCartData]= useState([])
 //console.log(cart)
 
 
     return (
-        <CartContext.Provider value={{cart, setCart, setCartItems}}>
+        <CartContext.Provider value={{cart, setCart, cartData,setCartData}}>
             {children}
         </CartContext.Provider>
     )

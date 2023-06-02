@@ -45,7 +45,16 @@ const Home = () => {
       clearInterval(id);
     };
   }, []);
-  console.log(page)
+
+  let buttonOne = false
+  let buttonTwo = false
+
+  if(page===9){
+     buttonOne = true
+  }
+  if(page===18){
+     buttonTwo = true
+  }
 
   return (
     <div>
@@ -108,7 +117,7 @@ const Home = () => {
       <div style={{ display: "flex", justifyContent: "center", gap: "5px" }}>
         <Button
           style={{ backgroundColor: "#ff3366", borderRadius: "5px" }}
-          disabled={page === 18}
+          isDisabled={buttonTwo}
           onClick={() => setPage(18)}
         >
           SHOW MORE
@@ -116,7 +125,7 @@ const Home = () => {
 
         <Button
           style={{ backgroundColor: "#ff3366", borderRadius: "5px" }}
-          disabled={page === 9}
+          isDisabled={buttonOne}
           onClick={() => setPage(9)}
         >
           SHOW LESS

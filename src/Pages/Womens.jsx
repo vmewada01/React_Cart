@@ -1,7 +1,9 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { CartContext } from '../Context/CartContext';
 
 const Womens = () => {
+  const {cart,setCart,cartData,setCartData}= useContext(CartContext)
   const [data, setData] = useState([]);
   const [count, setCount]= useState(0)
   const [sortvalue, SetSortValue] = useState("asc");
@@ -26,6 +28,21 @@ const Womens = () => {
       });
   }, [sortvalue]);
 
+
+  const handleCart =(img,price,category)=>{
+    alert('item added to cart')
+    
+
+    setCart({
+      ...cart,
+      url: img,
+      price: price,
+      category: category
+
+    })
+
+   console.log(cart)
+   }
 
 
   return (
@@ -63,24 +80,14 @@ const Womens = () => {
               <h4>Price : {api_data.price} Rs</h4>
               <p>{api_data.title}</p>
               <div>
-              <button
-              disabled={count==5}
-              onClick={()=>setCount(()=>count+1)}
-                style={{ backgroundColor: "#ff3366", borderRadius: "5px" }}
-              >
-               +
-              </button>
-              {count}
-              <button
-              disabled={count==0}
-              onClick={()=>setCount(()=>count-1)}
-                style={{ backgroundColor: "#ff3366", borderRadius: "5px" }}
-              >
-             -
-              </button>
-           
+              
               <button
                 style={{ backgroundColor: "#ff3366", borderRadius: "5px" }}
+               onClick={()=>{
+                console.log(api_data.image,api_data.price,api_data.category)
+                 
+                handleCart(api_data.image,api_data.price,api_data.category) 
+              }}
               >
                 BUY NOW
               </button>
