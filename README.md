@@ -14,6 +14,17 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
+# Details : - 
+
+![Screenshot (72)](https://github.com/vmewada01/React_Cart/assets/122343841/97292289-f350-4afd-8fd1-96180f93bd35)
+
+![Screenshot (73)](https://github.com/vmewada01/React_Cart/assets/122343841/293547bf-3b55-4a98-b832-2ea1463ff384)
+
+
+
+![Screenshot (74)](https://github.com/vmewada01/React_Cart/assets/122343841/aa67d52b-2a36-4e00-9a7c-c708ba2668e8)
+
+
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
